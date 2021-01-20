@@ -74,6 +74,14 @@ namespace Azure.ResourceManager.Core.Tests
             Assert.AreEqual(0, resourceType1.CompareTo(resourceType2));
         }
 
+        [Test]
+        public void CompateToNull()
+        {
+            ResourceType resourceType1 = new ResourceType(resourcePrefix + "Microsoft.ClassicStorage/storageAccounts/account1");
+            ResourceType resourceType2 = null;
+            Assert.AreEqual(1, resourceType1.CompareTo(resourceType2));
+        }
+
         [TestCase(-1, "Microsoft.Network1/virtualNetworks2/Testvnet/subnets/default1",
             "Microsoft.network2/virtualNetworks1/Testvnet/Subnets/default2")]
         [TestCase(1, "Microsoft.network2/VirtualNetworks2/Testvnet/subnets2/default1",
